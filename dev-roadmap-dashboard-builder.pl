@@ -155,10 +155,11 @@ foreach my $q (@queues) {
 
         my $section = lc($yaml->{koha_module});
         $section =~ s/ /-/g;
+        $section ||= 'general';
 
-        qx{ mkdir -p hugo-site/content/posts/$section };
-        DumpFile("hugo-site/content/posts/$section/$bug_id.md", $yaml );
-        qx{ echo '---' >> hugo-site/content/posts/$section/$bug_id.md };
+        qx{ mkdir -p hugo-site/content/posts };
+        DumpFile("hugo-site/content/posts/$bug_id.md", $yaml );
+        qx{ echo '---' >> hugo-site/content/posts/$bug_id.md };
     }
 }
 
