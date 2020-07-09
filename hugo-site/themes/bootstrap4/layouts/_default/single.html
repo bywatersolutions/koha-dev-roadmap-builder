@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-{{ partial "head.html" .}}
-
-<body>
-
-{{ partial "header.html" . }}
-
+{{ define "main" }}
 <div class="container">
     <main id="main">
         <h3>{{ .Params.subject }}</h3>
@@ -44,6 +36,15 @@
                     </div>
                 </div>
             {{ end }}
+
+            {{ if ne .Params.bug_workflow "" }}
+                <div class="form-group row">
+                    <label for="bug_workflow" class="col-sm-2 col-form-label">Community Status</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="bug_workflow" value="{{ .Params.bug_workflow }}">
+                    </div>
+                </div>
+            {{ end }}
         </form>
 
 
@@ -51,9 +52,4 @@
         <a href="#" onclick="history.back()" class="btn btn-secondary">Back to list</a>
     </main>
 </div>
-
-{{ partial "footer.html" . }}
-
-</body>
-
-</html>
+{{ end }}

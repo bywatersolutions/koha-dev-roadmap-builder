@@ -1,3 +1,5 @@
+{{ $skip_header := .Scratch.Get "skip_header" }}
+{{ if eq $skip_header "yes" }}
 <header>
     <div class="navbar navbar-light bg-light box-shadow">
         <div class="container">
@@ -10,3 +12,4 @@
     </div>
     <p/>
 </header>
+{{ end }}
