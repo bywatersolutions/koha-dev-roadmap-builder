@@ -153,8 +153,12 @@ foreach my $q (@queues) {
         $yaml->{bug_workflow}   = $ticket->{'CF.{Bug Workflow}'}    || q{};
         $yaml->{koha_version}   = $ticket->{'CF.{Koha Version}'}    || q{};
 
-        DumpFile("hugo-site/content/posts/$bug_id.md", $yaml );
-        qx{ echo '---' >> hugo-site/content/posts/$bug_id.md };
+        my $section = lc($yaml->{koha_module});
+        $section =~ s/ /-/g;
+
+        qx{ mkdir -p hugo-site/content/posts/$section };
+        DumpFile("hugo-site/content/posts/$section/$bug_id.md", $yaml );
+        qx{ echo '---' >> hugo-site/content/posts/$section/$bug_id.md };
     }
 }
 

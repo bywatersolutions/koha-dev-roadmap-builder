@@ -1,4 +1,5 @@
 {{ define "main" }}
+This is in __index.md
     <main aria-role="main">
       <header class="homepage-header">
         <h1>{{.Title}}</h1>

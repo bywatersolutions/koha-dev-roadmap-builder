@@ -1,15 +1,12 @@
-{{ $skip_header := .Scratch.Get "skip_header" }}
-{{ if eq $skip_header "yes" }}
 <header>
     <div class="navbar navbar-light bg-light box-shadow">
         <div class="container">
             <a href="#" class="navbar-brand d-flex align-items-center">
                 <img src="https://media.glassdoor.com/sqll/1376691/bywater-solutions-squarelogo-1474902894881.png" height="50">
                 &nbsp;
-                <strong>ByWater Solutions Koha Development Roadmap</strong>
+                <strong>{{ .Site.Title }}</strong>
             </a>
         </div>
     </div>
     <p/>
 </header>
-{{ end }}
