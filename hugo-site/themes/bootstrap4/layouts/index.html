@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+<html>
+
+    {{ partial "head.html" .}}
+  <body>
+
+    {{ if eq $paginator.PageNumber 1 }}
+        <section class="jumbotron text-center">
+            <picture>
+                <img src="/roadmap.png" class="jumbotron__background">
+            </picture>
+                <p>
+                    <a href="https://bywatersolutions.com" class="btn btn-primary my-2">ByWaterSolutions.com</a>
+                    <a href="https://devs.bywatersolutions.com/" class="btn btn-secondary my-2">Development Crowdfunding</a>
+                </p>
+            </div>
+        </section>
+    {{ else }}
+        {{ partial "header.html" . }}
+    {{ end }}
+
+    <div class="container">
+        <div class="card-columns">
+            {{ range $paginator.Pages }}
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{ .Params.subject | truncate 50 }}</div>
+                    <div class="card-body">
+                        <span class="badge badge-primary">{{ .Params.koha_version }}</span>
+                        <span class="badge badge-secondary">{{ .Params.koha_module }}</span>
+                        <p class="card-text">{{ .Params.work_tbd | plainify | truncate 180 }}</p>
+                        <a href="{{ .Permalink }}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+  </body>
+
+</html>

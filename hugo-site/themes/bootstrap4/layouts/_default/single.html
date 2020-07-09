@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+{{ partial "head.html" .}}
+
+<body>
+
+{{ partial "header.html" . }}
+
+<div class="container">
+    <main id="main">
+        <h3>{{ .Params.subject }}</h3>
+
+        <p>{{ .Params.work_tbd }}</p>
+
+        <form>
+            {{ if ne .Params.koha_module "" }}
+                <div class="form-group row">
+                    <label for="koha_module" class="col-sm-2 col-form-label">Module</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="koha_module" value="{{ .Params.koha_module }}">
+                    </div>
+                </div>
+            {{ end }}
+
+            {{ if ne .Params.koha_version "" }}
+                <div class="form-group row">
+                    <label for="koha_version" class="col-sm-2 col-form-label">Koha Version</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="koha_version" value="{{ .Params.koha_version }}">
+                    </div>
+                </div>
+            {{ end }}
+
+            {{ if ne .Params.bug_id "" }}
+                <div class="form-group row">
+                    <label for="bug_id" class="col-sm-2 col-form-label">Community Bug</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="bug_id" value="{{ .Params.bug_id }}">
+                        <a href="https://bugs.koha-community.org/bugzilla3/show_bug.cgi?id={{ .Params.bug_id }}" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Community Bugzilla
+                        </a>
+                    </div>
+                </div>
+            {{ end }}
+        </form>
+
+
+        <br/>
+        <a href="#" onclick="history.back()" class="btn btn-secondary">Back to list</a>
+    </main>
+</div>
+
+{{ partial "footer.html" . }}
+
+</body>
+
+</html>

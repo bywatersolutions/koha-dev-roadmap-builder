@@ -1,0 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "ByWater Solutions Koha Development Roadmap"
+theme = "bootstrap4"
