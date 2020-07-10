@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://roadmap.bywatersolutions.com/"
 languageCode = "en-us"
 title = "ByWater Solutions Koha Development Roadmap"
 theme = "bootstrap4"
