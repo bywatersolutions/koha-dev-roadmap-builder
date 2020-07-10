@@ -1,8 +1,6 @@
 {{ define "main" }}
-<!DOCTYPE html>
 {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
     {{ if eq $paginator.PageNumber 1 }}
-        {{ .Scratch.Set "skip_header" "yes" }}
         <section class="jumbotron text-center">
             <picture>
                 <img src="/roadmap.png" class="jumbotron__background">
@@ -42,5 +40,4 @@
     </div>
 
     {{ partial "footer.html" . }}
-
 {{ end }}

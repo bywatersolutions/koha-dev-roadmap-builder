@@ -156,6 +156,7 @@ foreach my $q (@queues) {
         my $section = lc($yaml->{koha_module});
         $section =~ s/ /-/g;
         $section ||= 'general';
+        $yaml->{tags} = [$section];
 
         qx{ mkdir -p hugo-site/content/posts };
         DumpFile("hugo-site/content/posts/$bug_id.md", $yaml );

@@ -1,0 +1,13 @@
+{{ $this_tag := .Title }}
+<ul class="nav nav-pills nav-justified">
+    {{range $name, $taxonomy := .Site.Taxonomies.tags}}
+        {{ $cnt := .Count }}
+        {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+            <li class="nav-item">
+                <a class="nav-link {{ if eq .Title $this_tag }}active{{ end }}" href={{ .RelPermalink }} title="All pages with tag <i>{{$name}}</i>">
+                    {{$name}} <span class="badge badge-light">{{$cnt}}</span>
+                </a>
+            </li>
+        {{end}}
+    {{end}}
+</ul>
