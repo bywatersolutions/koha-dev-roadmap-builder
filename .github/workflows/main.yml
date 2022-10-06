@@ -1,0 +1,34 @@
+on: [push]
+jobs:
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Docker build
+      run: |
+        docker build \
+          --build-arg rt_url=${{ secrets.RT_URL}} \
+          --build-arg rt_user=${{ secrets.RT_USER}} \
+          --build-arg rt_pw=${{ secrets.RT_PW}} \
+          --build-arg koha_url=${{ secrets.KOHA_URL}} \
+          --build-arg koha_user=${{ secrets.KOHA_USER}} \
+          --build-arg koha_pw=${{ secrets.KOHA_PW}} \
+          --build-arg slack_url=${{ secrets.SLACK_URL}} \
+          -t roadmap:latest .
+
+    - name: Log in to quay.io
+      run: echo "${{ secrets.QUAY_PASSWORD }}" | docker login quay.io -u ${{ secrets.QUAY_USERNAME }} --password-stdin
+
+    - name: Tag image for quay.io
+      run: docker tag roadmap:latest quay.io/bywatersolutions/koha-dev-roadmap:latest
+
+    - name: List available docker images
+      run: docker image ls
+
+    - name: Push image to quay.io
+      run: docker push quay.io/bywatersolutions/koha-dev-roadmap:latest

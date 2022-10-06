@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>[% page.bug_subject %]</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">
+                The mission of ByWater Solutions is to empower libraries by giving them the technological flexibility and freedom they deserve through the use of open source software with comprehensive and honest support.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="https://twitter.com/bywatersolution" class="text-white">Follow on Twitter</a></li>
+                <li><a href="https://www.instagram.com/bywatersolutions" class="text-white">Follow on Instagram</a></li>
+                <li><a href="https://www.facebook.com/ByWaterSolutions" class="text-white">Like on Facebook</a></li>
+
+              <li><a class="text-white" href="https://www.facebook.com/ByWaterSolutions"><i class="fa fa-facebook"></i> <span class="tooltip">Facebook</span></a></li>
+              <li><a class="text-white" href="https://github.com/bywatersolutions"><i class="fa fa-github-circled"></i> <span class="tooltip">Github</span></a></li>
+              <li><a class="text-white" href="https://www.linkedin.com/company/bywater-solutions"><i class="fa fa-linkedin"></i> <span class="tooltip">Linked-In</span></a></li>
+              <li><a class="text-white" href="https://www.youtube.com/user/bywatersolutions"><i class="fa fa-youtube-play"></i> <span class="tooltip">Youtube</span></a></li>
+              <li><a class="text-white" href="https://twitter.com/bywatersolution"><i class="fa fa-twitter"></i> <span class="tooltip">Twitter</span></a></li>
+              <li><a class="text-white" href="https://www.instagram.com/bywatersolutions"><i class="fa fa-instagram"></i> <span class="tooltip">Instagram</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <img src="bws_logo.png" width="100"></img>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <strong>ByWater Solutions Koha Development Roadmap</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <section class="jumbotron text-center">
+      <picture>
+        <img src="/roadmap.jpg" class="jumbotron__background">
+      </picture>
+      <p>
+        <a href="https://bywatersolutions.com" class="btn btn-primary my-2">ByWaterSolutions.com</a>
+        <a href="https://devs.bywatersolutions.com/" class="btn btn-secondary my-2">Development Crowdfunding</a>
+      </p>
+    </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            [% FOREACH page IN site.pages %]
+            [% IF page.layout == "bug" %]
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Bug [% page.bug_id %]</h5>
+                  <p class="card-text">[% page.subject %]</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/[% page.bug_id %].html" class="btn btn-sm btn-outline-secondary">Details</a>
+                    </div>
+                    <small class="text-muted"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            [% END %]
+            [% END %]
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>©2020 ByWater Solutions, LLC</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
