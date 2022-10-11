@@ -1,4 +1,9 @@
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    types:
+      - webhook
 jobs:
   build:
     name: Build Docker image
