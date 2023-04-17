@@ -37,3 +37,6 @@ jobs:
 
     - name: Push image to quay.io
       run: docker push quay.io/bywatersolutions/koha-dev-roadmap:latest
+
+    - name: Notify service to update container
+      run: curl -X POST https://portainer.tools.bywatersolutions.com/api/webhooks/c4e3ae17-fde7-4b8a-bc65-a391fd45c82a
